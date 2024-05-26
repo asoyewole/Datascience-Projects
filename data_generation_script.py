@@ -27,12 +27,16 @@ def data_generator(data, number):
     loop_time = end_time - start_time
     return data, loop_time
 
-
+# load original data into pandas dataframe
 data = pd.read_csv(
     "C:/Users/asoye/Documents/Projects/online+retail/Online Retail.csv")
+
+# Number = total number of rows
 number = data.shape[0]
 df, time_taken = data_generator(data, number)
+
 print(df.head())
 print(f'loops completed in {time_taken}')
 
+# Save augmented data to new csv file without index
 df.to_csv('Online_Retail_with_fake_data.csv', index=False, encoding='utf-8')
